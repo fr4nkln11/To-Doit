@@ -22,22 +22,12 @@
   margin: auto;
 }
 
-.input-fixed-bottom{
-	position:fixed;
+.fixed-bottom-group{
+	position:sticky;
 	bottom:0;
 	left:0;
 	right:0;	
-	width:50%;
+	width:80%;
 	margin:auto;
-}
-
-.entry_text{
-}
-
-.UD-buttons{
-    display: inline;
-}
-
-.UD-btn{
-
+	margin-top: 15px;
 }
