@@ -1,0 +1,43 @@
+@font-face {
+  font-family: 'Geomatrix';
+  src: url('Geomatrix Medium.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Roundy';
+    src: url('Roundo-Medium.otf');
+}
+
+.logotype {
+    font-family: 'Geomatrix';
+}
+
+.header{
+    font-family: 'Geomatrix';
+    margin: auto;
+}
+
+.content {
+  font-family: 'Roundy';
+  max-width: 500px;
+  margin: auto;
+}
+
+.input-fixed-bottom{
+	position:fixed;
+	bottom:0;
+	left:0;
+	right:0;	
+	width:50%;
+	margin:auto;
+}
+
+.entry_text{
+}
+
+.UD-buttons{
+    display: inline;
+}
+
+.UD-btn{
+
+}

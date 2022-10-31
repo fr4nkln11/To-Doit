@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for entry in todos %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+    		<span><input class="form-check-input me-1" type="checkbox" value="" aria-label="..."></span>
+        <div class="card-body">{{ entry['content'] }}</div>
+			
+		    <button type="button" class="btn btn-sm UD-btn" aria-label="Close"><i class="bi bi-pencil"></i></button>      
+		    <button type="button" class="btn btn-sm UD-btn" aria-label="Close"><i class="bi bi-trash"></i></button>
+			
+        </li>
+    {% endfor %}
+{% endblock %}
