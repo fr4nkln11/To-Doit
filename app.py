@@ -1,4 +1,5 @@
 import sqlite3
+from datetime import datetime
 from flask import Flask, render_template, request, redirect, url_for
 
 def get_db_connection():
@@ -15,7 +16,7 @@ def index():
     todos = conn.execute('SELECT * FROM todos').fetchall()
     todos = reversed(todos)
     conn.close()
-    return render_template('index.html',todos=todos)
+    return render_template('index.html',todos=todos, datetime=datetime)
 
 @app.route('/create', methods=['POST'])   
 def create():
@@ -38,6 +39,6 @@ def delete(id):
         conn.commit()
         conn.close()
         return "Task deleted successfully"
-    
+
 if __name__ == "__main__":
     app.run(debug=True)

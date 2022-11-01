@@ -4,6 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light only">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -13,28 +14,28 @@
     <link rel="icon" href="{{ url_for('static',filename='check.svg') }}" type="image/svg" sizes="16x16">
   </head>
   <body>
-	<nav class="navbar sticky-top navbar-light bg-light">
+	<nav class="navbar sticky-top navbar-dark bg-dark">
     	<div class="container">
         <a class="navbar-brand logotype mx-auto" href="#">
             <i class="bi bi-check2-circle"></i>To-Doit
         </a>
   	  </div>
 	</nav>
-	<div class="content">
-    <h1 id='headee' class="header text-center"><i class="bi bi-check2-circle"></i>To-Doit: Another Minimalistic Productivity Tool</h1>
+	<div class="content container">
+    <h1 class="header text-center"><i class="bi bi-check2-circle"></i> Just Another Productivity Tool</h1>
+    <hr>
     <ul class="list-group">
         {% block content %} {% endblock %}   
-        <form action="{{ url_for('create') }}" autocomplete="off" method="post" class="fixed-bottom-group">
+        <form action="{{ url_for('create') }}" method="post" class="fixed-bottom-group">
 	        <div class="input-group mb-3">
-		        <input type="text" name="new_entry" class="form-control" placeholder="Add new task" aria-label="Add task" aria-describedby="button-addon2">
-		        <button class="btn btn-secondary" type="submit" id="button-addon2"><i class="bi bi-plus"></i></button>
+		        <input type="text" name="new_entry" autocomplete="off" class="form-control" placeholder="Add new task" aria-label="Add task" aria-describedby="button-addon2">
+		        <button id="add_task" class="btn btn-secondary" type="submit" id="button-addon2"><i class="bi bi-plus"></i></button>
 	        </div>
 	    </form>
 	</ul>
+	</div>
 	
-
     <!-- Bootstrap Bundle with Popper -->   
-    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="{{ url_for('static',filename='main.js') }}"></script>
   </body>

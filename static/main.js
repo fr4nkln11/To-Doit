@@ -4,10 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const request = new XMLHttpRequest();
             request.open('POST', `/delete/${button.id}`);
             request.onload = () => {
-                const entry = document.querySelector(`li[id="${button.id}"]`);
+                const entry = document.querySelector(`div[id="${button.id}"]`);
                 document.querySelector('.list-group').removeChild(entry);
             }; 
             request.send();
         };
     });
+    
 });

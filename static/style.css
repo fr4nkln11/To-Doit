@@ -7,6 +7,11 @@
     src: url('Roundo-Medium.otf');
 }
 
+body {
+    background-color: #f8f9fa;
+    font-size: 100%;
+}
+
 .logotype {
     font-family: 'Geomatrix';
 }
@@ -18,7 +23,6 @@
 
 .content {
   font-family: 'Roundy';
-  max-width: 500px;
   margin: auto;
 }
 
@@ -29,5 +33,21 @@
 	right:0;	
 	width:80%;
 	margin:auto;
-	margin-top: 15px;
+}
+
+.card{
+    background-color: rgba(255,255,255,0.95);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.095);
+}
+
+.list-group-item{
+    background-color: rgba(0,0,0,0);
+}
+
+.card-body{
+    font-size: 0.85em;
+}
+
+.timestamp {
+    font-family: 'Geomatrix';
 }
