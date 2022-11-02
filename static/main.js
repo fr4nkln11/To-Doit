@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.close_button').forEach(button => {
+    document.querySelectorAll('.btn-close').forEach(button => {
         button.onclick = () => {
             const request = new XMLHttpRequest();
             request.open('POST', `/delete/${button.id}`);

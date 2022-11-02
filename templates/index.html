@@ -4,9 +4,17 @@
     {% for entry in todos %}
         <div id="{{ entry['id'] }}" class="card mb-2 border-0">
             <li class="list-group-item py-0 border-0 d-flex justify-content-between align-items-center">
-    	    	<span><input class="form-check-input me-1" type="checkbox" value="" aria-label="..."></span>
+    	    	<div class="pretty p-icon p-toggle p-plain">
+                    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                    <div class="state p-off">
+                        <i class="bi bi-circle"></i>
+                    </div>
+                    <div class="state p-on">
+                        <i class="bi bi-check-circle-fill"></i>
+                    </div>
+                </div>
                 <div class="card-body lh-sm">{{ entry['content'] }}</div>
-                <button id="{{ entry['id'] }}" type="button" class="btn btn-sm close_button" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+                <button id="{{ entry['id'] }}" type="button" class="btn btn-sm btn-close" aria-label="Close"></button>
             </li>
         </div>
     {% endfor %}
