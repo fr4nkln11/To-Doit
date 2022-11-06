@@ -7,9 +7,12 @@
     src: url('Roundo-Medium.otf');
 }
 
-:hover,
-*:focus,
-*:active
+button:hover,
+button:focus,
+button:active,
+input:hover,
+input:focus,
+input:active
  {
   outline: none;
   box-shadow: none !important;
@@ -17,7 +20,7 @@
 }
 
 body {
-    background-color: #f8f9fa;
+    background-color: #f4f4f4;
     font-size: 100%;
 }
 
@@ -47,7 +50,6 @@ body {
 
 .card{
     background-color: rgba(255,255,255,0.95);
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.095);
 }
 
 .list-group-item{
@@ -56,8 +58,4 @@ body {
 
 .card-body{
     font-size: 0.85em;
-}
-
-.timestamp {
-    font-family: 'Geomatrix';
 }
