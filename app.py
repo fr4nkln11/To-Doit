@@ -22,14 +22,17 @@ def index():
 def create():
     conn = get_db_connection()
     if request.method == "POST":
-       new_entry = request.form["new_entry"]
+       print("incoming POST...")
+       new_task = request.get_json()["new_task"]
        
-       if new_entry:
-           conn.execute('INSERT INTO todos (content) VALUES (?)',(new_entry,))
+       if new_task:
+           conn.execute('INSERT INTO todos (content) VALUES (?)',(new_task,))
            conn.commit()
+           task = conn.execute('SELECT * FROM todos WHERE content = ?',(new_task,)).fetchone()
+           task_id = str(task['id'])
            conn.close()
-           return redirect(url_for('index'))
-       return redirect(url_for('index'))
+       print(f"task #{task_id} created")
+       return task_id
 
 @app.route('/delete/<id>', methods=['POST'])
 def delete(id):
@@ -38,6 +41,7 @@ def delete(id):
         conn.execute("DELETE FROM todos WHERE id = ?", (id,))
         conn.commit()
         conn.close()
+        print(f"task #{id} deleted")
         return "Task deleted successfully"
 
 if __name__ == "__main__":

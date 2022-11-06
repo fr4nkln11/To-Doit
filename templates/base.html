@@ -29,10 +29,10 @@
     <hr>
     <ul class="list-group">
         {% block content %} {% endblock %}   
-        <form action="{{ url_for('create') }}" method="post" class="fixed-bottom-group">
+        <form id="add_task" method="POST" class="fixed-bottom-group">
 	        <div class="input-group mb-3">
-		        <input type="text" name="new_entry" autocomplete="off" class="form-control" placeholder="Add new task" aria-label="Add task" aria-describedby="button-addon2">
-		        <button id="add_task" class="btn btn-secondary" type="submit" id="button-addon2"><i class="bi bi-plus"></i></button>
+		        <input id="task_input" type="text" name="new_task" autocomplete="off" class="form-control" placeholder="Add new task">
+		        <button class="btn btn-secondary" type="submit"><i class="bi bi-plus"></i></button>
 	        </div>
 	    </form>
 	</ul>

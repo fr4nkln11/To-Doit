@@ -12,14 +12,60 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 });
 
-document.querySelector('#add_task').addEventListener('click', () => {
-    const new_entry = document.querySelector('#new_entry').value;
+document.querySelector('#add_task').addEventListener('submit', () => {
+    event.preventDefault();
+    const new_task = document.querySelector('#task_input').value;
+        
+    let createCard = (t_id) => {
+        let new_card = document.createElement('div');
+        new_card.id = t_id
+        new_card.className = "card mb-2 border-0"
+        
+        let new_card_content = '<li class="list-group-item py-0 border-0 d-flex justify-content-between align-items-center">' +
+    	    	'<div class="pretty p-icon p-toggle p-plain">' +
+                    '<input class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
+                    '<div class="state p-off">' +
+                        '<i class="bi bi-circle"></i>' +
+                    '</div>' +
+                    '<div class="state p-on">' +
+                        '<i class="bi bi-check-circle-fill"></i>' +
+                    '</div>' +
+                '</div>' +
+                '<div class="card-body lh-sm"></div>' +
+                '<button type="button" class="btn btn-sm btn-close" aria-label="Close"></button>' +
+            '</li>'
+        
+        new_card.innerHTML = new_card_content;
+        new_card.children[0].children[1].innerHTML = new_task
+        new_card.children[0].children[2].id = t_id
+        
+        document.querySelector('.list-group').prepend(new_card);
+        
+        new_card.onclick = () => {
+            const request = new XMLHttpRequest();
+            request.open('POST', `/delete/${t_id}`);
+            request.onload = () => {
+                const entry = document.querySelector(`div[id="${t_id}"]`);
+                document.querySelector('.list-group').removeChild(entry);
+            }; 
+            request.send();
+        };
+        
+    };
     
-    const request = new XMLHttpRequest();
-    request.open('POST', `/create/${new_entry}`);
-    request.onload = () => {
-        const response = request.responseText;
-        alert(response)
-    }
-    request.send();
+    fetch('/create',{
+        headers: {
+            'Content-Type':'application/json'
+        },
+        method: 'POST',
+        body: JSON.stringify({
+            'new_task': new_task
+        }),
+    }).then(function (response) {
+        return response.text();
+    }).then(function (id) {
+        createCard(id)
+    });
+    
+    document.querySelector('#task_input').value = '';
 });
