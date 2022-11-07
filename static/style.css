@@ -19,9 +19,21 @@ input:active
   -webkit-appearance: none;
 }
 
+html {
+    min-height: 100%;
+}
+
+
 body {
-    background-color: #f4f4f4;
+    background: linear-gradient(0deg, #eeeeff 10%, #eeeeee 90%);
+    background-repeat: no-repeat;
     font-size: 100%;
+}
+
+.navbar-custom {
+    background-color: rgba(22,22,70,0.75);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
 }
 
 .logotype {
@@ -48,8 +60,28 @@ body {
 	margin:auto;
 }
 
+.input-group {
+    border-radius: 30px;
+}
+
+input[type="text"] {
+    background-color: rgba(255,255,255,0.75);
+    backdrop-filter: blur(1px);
+    border: 0px;
+    border-radius: 30px;
+}
+
+.btn-custom {
+    background-color: rgba(22,22,70,0.75);
+    backdrop-filter: blur(4px);
+    border: 0px;
+    border-radius: 0 30px 30px 0;
+}
+
 .card{
-    background-color: rgba(255,255,255,0.95);
+    background-color: rgba(255,255,255,0.35);
+    border: 0px;
+    border-radius: 10px;
 }
 
 .list-group-item{

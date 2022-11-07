@@ -19,10 +19,10 @@ document.querySelector('#add_task').addEventListener('submit', () => {
     let createCard = (t_id) => {
         let new_card = document.createElement('div');
         new_card.id = t_id
-        new_card.className = "card mb-2 border-0"
+        new_card.className = "card mb-2 shadow-sm"
         
         let new_card_content = '<li class="list-group-item py-0 border-0 d-flex justify-content-between align-items-center">' +
-    	    	'<div class="pretty p-icon p-toggle p-plain">' +
+    	    	'<div class="pretty p-icon p-toggle p-plain px-1">' +
                     '<input class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
                     '<div class="state p-off">' +
                         '<i class="bi bi-circle"></i>' +
@@ -31,8 +31,8 @@ document.querySelector('#add_task').addEventListener('submit', () => {
                         '<i class="bi bi-check-circle-fill"></i>' +
                     '</div>' +
                 '</div>' +
-                '<div class="card-body lh-sm"></div>' +
-                '<button type="button" class="btn btn-sm btn-close" aria-label="Close"></button>' +
+                '<div class="card-body lh-sm px-0"></div>' +
+                '<button type="button" class="btn btn-sm btn-close px-2 mx-2" aria-label="Close"></button>' +
             '</li>'
         
         new_card.innerHTML = new_card_content;
