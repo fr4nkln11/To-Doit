@@ -64,7 +64,7 @@ body {
 }
 
 input[type="text"] {
-    background-color: rgba(255,255,255,0.75);
+    background-color: rgba(255,255,255,0.45);
     backdrop-filter: blur(1px);
     border: 0px;
     border-radius: 30px;
@@ -77,9 +77,9 @@ input[type="text"] {
 }
 
 .card{
-    background-color: rgba(255,255,255,0.45);
+    background-color: rgba(255,255,255,0.35);
     border: 0px;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 .list-group-item, .list-group-item .close-btn {
