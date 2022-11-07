@@ -82,9 +82,13 @@ input[type="text"] {
     border-radius: 10px;
 }
 
-.list-group-item, .list-group-item .btn {
+.list-group-item, .list-group-item .close-btn {
     background-color: rgba(0,0,0,0);
     color: rgb(22,22,70);
+}
+
+.close-btn {
+    font-size: 1em;
 }
 
 .card-body{

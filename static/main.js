@@ -1,13 +1,17 @@
-document.addEventListener('DOMContentLoaded', function(){
-    document.querySelectorAll('.btn-close').forEach(button => {
-        button.onclick = () => {
-            const request = new XMLHttpRequest();
-            request.open('POST', `/delete/${button.id}`);
+let card_delete = (id) => {
+    const request = new XMLHttpRequest();
+            request.open('POST', `/delete/${id}`);
             request.onload = () => {
-                const entry = document.querySelector(`div[id="${button.id}"]`);
+                const entry = document.querySelector(`div[id="${id}"]`);
                 document.querySelector('.list-group').removeChild(entry);
             }; 
             request.send();
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('.close-btn').forEach(button => {
+        button.onclick = () => {
+            card_delete(button.id)
         };
     });
 });
@@ -32,7 +36,7 @@ document.querySelector('#add_task').addEventListener('submit', () => {
                     '</div>' +
                 '</div>' +
                 '<div class="card-body lh-sm px-0"></div>' +
-                '<button type="button" class="btn btn-sm btn-close px-2 mx-2" aria-label="Close"></button>' +
+                '<button type="button" class="btn btn-sm close-btn px-2 mx-2"><i class="bi bi-x-lg"></i></button>' +
             '</li>'
         
         new_card.innerHTML = new_card_content;
@@ -42,13 +46,7 @@ document.querySelector('#add_task').addEventListener('submit', () => {
         document.querySelector('.list-group').prepend(new_card);
         
         new_card.children[0].children[2].onclick = () => {
-            const request = new XMLHttpRequest();
-            request.open('POST', `/delete/${t_id}`);
-            request.onload = () => {
-                const entry = document.querySelector(`div[id="${t_id}"]`);
-                document.querySelector('.list-group').removeChild(entry);
-            }; 
-            request.send();
+            card_delete(t_id);
         };
         
     };
