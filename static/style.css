@@ -25,15 +25,14 @@ html {
 
 
 body {
-    background: linear-gradient(0deg, #eeeeff 10%, #eeeeee 90%);
+    background: linear-gradient(0deg, #dedeff 0%, #eeeeff 90%);
     background-repeat: no-repeat;
     font-size: 100%;
+    color: rgb(22,22,70);
 }
 
 .navbar-custom {
-    background-color: rgba(22,22,70,0.75);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
+    background-color: rgba(22,22,70,0.85);
 }
 
 .logotype {
@@ -42,7 +41,7 @@ body {
 
 .header{
     font-family: 'Geomatrix';
-    font-size: 1.5em;
+    font-size: 1.7em;
     margin: 20px;
 }
 
@@ -73,19 +72,19 @@ input[type="text"] {
 
 .btn-custom {
     background-color: rgba(22,22,70,0.75);
-    backdrop-filter: blur(4px);
     border: 0px;
     border-radius: 0 30px 30px 0;
 }
 
 .card{
-    background-color: rgba(255,255,255,0.35);
+    background-color: rgba(255,255,255,0.45);
     border: 0px;
     border-radius: 10px;
 }
 
-.list-group-item{
+.list-group-item, .list-group-item .btn {
     background-color: rgba(0,0,0,0);
+    color: rgb(22,22,70);
 }
 
 .card-body{

@@ -45,4 +45,4 @@ def delete(id):
         return "Task deleted successfully"
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()

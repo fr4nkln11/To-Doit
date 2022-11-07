@@ -41,7 +41,7 @@ document.querySelector('#add_task').addEventListener('submit', () => {
         
         document.querySelector('.list-group').prepend(new_card);
         
-        new_card.onclick = () => {
+        new_card.children[0].children[2].onclick = () => {
             const request = new XMLHttpRequest();
             request.open('POST', `/delete/${t_id}`);
             request.onload = () => {
