@@ -1,5 +1,4 @@
 import sqlite3
-from datetime import datetime
 from flask import Flask, render_template, request, redirect, url_for
 
 def get_db_connection():
@@ -16,7 +15,7 @@ def index():
     todos = conn.execute('SELECT * FROM todos').fetchall()
     todos = reversed(todos)
     conn.close()
-    return render_template('index.html',todos=todos, datetime=datetime)
+    return render_template('index.html',todos=todos)
 
 @app.route('/create', methods=['POST'])   
 def create():

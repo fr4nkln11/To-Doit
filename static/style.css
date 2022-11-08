@@ -1,12 +1,3 @@
-@font-face {
-  font-family: 'Geomatrix';
-  src: url('Geomatrix Medium.ttf') format('truetype');
-}
-@font-face {
-    font-family: 'Roundy';
-    src: url('Roundo-Medium.otf');
-}
-
 button:hover,
 button:focus,
 button:active,
@@ -14,6 +5,7 @@ input:hover,
 input:focus,
 input:active
  {
+  border: 0px;
   outline: none;
   box-shadow: none !important;
   -webkit-appearance: none;
@@ -36,17 +28,24 @@ body {
 }
 
 .logotype {
-    font-family: 'Geomatrix';
+    font-family: 'Nunito';
+    font-weight: 600;
 }
 
 .header{
-    font-family: 'Geomatrix';
-    font-size: 1.7em;
-    margin: 20px;
+    font-family: 'Nunito';
+    font-weight: 600;
+    font-size: 1.4em;
+}
+
+.badge {
+    font-family: 'Source Code Pro';
+    font-size: 0.6em;
+    background-color: rgba(22,22,70,0.85);    
 }
 
 .content {
-  font-family: 'Roundy';
+  font-family: 'Nunito';
   margin: auto;
 }
 
@@ -64,7 +63,7 @@ body {
 }
 
 input[type="text"] {
-    background-color: rgba(255,255,255,0.45);
+    background-color: rgba(255,255,255,0.55);
     backdrop-filter: blur(1px);
     border: 0px;
     border-radius: 30px;
@@ -77,12 +76,20 @@ input[type="text"] {
 }
 
 .card{
-    background-color: rgba(255,255,255,0.35);
+    background-color: rgba(255,255,255,0.5);
     border: 0px;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
-.list-group-item, .list-group-item .close-btn {
+.card:active,
+.card:hover {
+    background-color: rgba(255,255,255,0.9);
+    border: 0px;
+    border-radius: 10px;
+}
+
+.list-group-item,
+.list-group-item .close-btn {
     background-color: rgba(0,0,0,0);
     color: rgb(22,22,70);
 }
@@ -92,5 +99,5 @@ input[type="text"] {
 }
 
 .card-body{
-    font-size: 0.85em;
+    font-size: 0.95em;
 }

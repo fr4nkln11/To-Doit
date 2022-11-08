@@ -36,7 +36,7 @@ document.querySelector('#add_task').addEventListener('submit', () => {
                     '</div>' +
                 '</div>' +
                 '<div class="card-body lh-sm px-0"></div>' +
-                '<button type="button" class="btn btn-sm close-btn px-2 mx-2"><i class="bi bi-x-lg"></i></button>' +
+                '<button type="button" class="btn btn-sm close-btn px-2"><i class="bi bi-x-lg"></i></button>' +
             '</li>'
         
         new_card.innerHTML = new_card_content;
