@@ -33,10 +33,11 @@ def create():
        print(f"task #{task_id} created")
        return task_id
 
-@app.route('/delete/<id>', methods=['POST'])
-def delete(id):
+@app.route('/delete', methods=['POST'])
+def delete():
     conn = get_db_connection()
     if request.method == 'POST':
+        id = request.get_json()['task_id']
         conn.execute("DELETE FROM todos WHERE id = ?", (id,))
         conn.commit()
         conn.close()

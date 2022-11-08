@@ -7,14 +7,20 @@ let update_badge = () => {
     };
 };
 
-let card_delete = (id) => {
-    const request = new XMLHttpRequest();
-            request.open('POST', `/delete/${id}`);
-            request.onload = () => {
-                document.querySelector(`div[id="${id}"]`).remove();
-                update_badge();
-            }; 
-            request.send();
+let card_delete = (task_id) => {
+    
+    fetch('/delete',{
+        headers: {
+            'Content-Type':'application/json'
+        },
+        method: 'POST',
+        body: JSON.stringify({
+            'task_id': task_id
+        }),
+    }).then(() => {
+        document.querySelector(`div[id="${task_id}"]`).remove();
+        update_badge();
+    });
 };
 
 document.addEventListener('DOMContentLoaded', function(){
@@ -65,9 +71,9 @@ document.querySelector('#add_task').addEventListener('submit', () => {
         body: JSON.stringify({
             'new_task': new_task
         }),
-    }).then(function (response) {
+    }).then((response) => {
         return response.text();
-    }).then(function (id) {
+    }).then((id) => {
         createCard(id)
     });
     
