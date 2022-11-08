@@ -1,19 +1,27 @@
+let update_badge = () => {
+    let count = document.querySelectorAll('.card').length;
+    if(count == 1){
+        document.querySelector('.badge').innerHTML = `${count} task`;
+    }else{
+        document.querySelector('.badge').innerHTML = `${count} tasks`;
+    };
+};
+
 let card_delete = (id) => {
     const request = new XMLHttpRequest();
             request.open('POST', `/delete/${id}`);
             request.onload = () => {
-                const entry = document.querySelector(`div[id="${id}"]`);
-                document.querySelector('.list-group').removeChild(entry);
+                document.querySelector(`div[id="${id}"]`).remove();
+                update_badge();
             }; 
             request.send();
-}
+};
 
 document.addEventListener('DOMContentLoaded', function(){
     document.querySelectorAll('.close-btn').forEach(button => {
-        button.onclick = () => {
-            card_delete(button.id)
-        };
+        button.onclick = () => {card_delete(button.id)};
     });
+    update_badge();
 });
 
 document.querySelector('#add_task').addEventListener('submit', () => {
@@ -44,10 +52,8 @@ document.querySelector('#add_task').addEventListener('submit', () => {
         new_card.children[0].children[2].id = t_id
         
         document.querySelector('.list-group').prepend(new_card);
-        
-        new_card.children[0].children[2].onclick = () => {
-            card_delete(t_id);
-        };
+        update_badge();
+        new_card.children[0].children[2].onclick = () => {card_delete(t_id);};
         
     };
     
