@@ -1,3 +1,9 @@
+:root {
+    --main-color: rgb(22,22,70);
+    --main-color-alpha: rgba(22,22,70,0.85);
+    --gradient-background: linear-gradient(0deg, #dedeff 0%, #eeeeff 90%);
+}
+
 button:hover,
 button:focus,
 button:active,
@@ -17,14 +23,14 @@ html {
 
 
 body {
-    background: linear-gradient(0deg, #dedeff 0%, #eeeeff 90%);
+    background: var(--gradient-background);
     background-repeat: no-repeat;
     font-size: 100%;
-    color: rgb(22,22,70);
+    color: var(--main-color);
 }
 
 .navbar-custom {
-    background-color: rgba(22,22,70,0.85);
+    background-color: var(--main-color-alpha);
 }
 
 .logotype {
@@ -41,7 +47,7 @@ body {
 .badge {
     font-family: 'Source Code Pro';
     font-size: 0.6em;
-    background-color: rgba(22,22,70,0.85);    
+    background-color: var(--main-color-alpha);
 }
 
 .content {
@@ -70,7 +76,7 @@ input[type="text"] {
 }
 
 .btn-custom {
-    background-color: rgba(22,22,70,0.75);
+    background-color: var(--main-color-alpha);
     border: 0px;
     border-radius: 0 30px 30px 0;
 }
@@ -91,7 +97,7 @@ input[type="text"] {
 .list-group-item,
 .list-group-item .close-btn {
     background-color: rgba(0,0,0,0);
-    color: rgb(22,22,70);
+    color: var(--main-color);
 }
 
 .close-btn {
