@@ -3,19 +3,7 @@
 {% block content %}
     {% for entry in todos %}
         <div id="{{ entry['id'] }}" class="card mb-2 shadow-sm">
-            <li class="list-group-item py-0 border-0 d-flex justify-content-between align-items-center">
-    	    	<div class="pretty p-icon p-toggle p-plain px-1">
-                    <input class="form-check-input me-1" type="checkbox">
-                    <div class="state p-off">
-                        <i class="bi bi-circle"></i>
-                    </div>
-                    <div class="state p-on">
-                        <i class="bi bi-check-circle-fill"></i>
-                    </div>
-                </div>
-                <div class="card-body lh-sm px-0">{{ entry['content'] }}</div>
-                <button id="{{ entry['id'] }}" type="button" class="btn btn-sm px-2 close-btn"><i class="bi bi-x-lg"></i></button>
-            </li>
+            {% include 'card_content.html' %}
         </div>
     {% endfor %}
 {% endblock %}

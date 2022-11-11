@@ -1,47 +1,50 @@
 import sqlite3
 from flask import Flask, render_template, request, redirect, url_for
-
-def get_db_connection():
-    conn = sqlite3.connect('database.db')
-    conn.row_factory = sqlite3.Row
-    return conn
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 app.config['SECRET_KEY'] = "secret stuff"
+
+db = SQLAlchemy(app)
+
+class tasks(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    content = db.Column(db.Text, nullable=False)
+    
+    def __repr__(self):
+        return f"[Task #{self.id}]"
+    def __init__(self, content):
+        self.content = content
 
 @app.route('/', methods =["GET", "POST"])
 def index():
-    conn = get_db_connection()
-    todos = conn.execute('SELECT * FROM todos').fetchall()
+    todos = tasks.query.all()
     todos = reversed(todos)
-    conn.close()
     return render_template('index.html',todos=todos)
 
 @app.route('/create', methods=['POST'])   
 def create():
-    conn = get_db_connection()
     if request.method == "POST":
        print("incoming POST...")
        new_task = request.get_json()["new_task"]
        
        if new_task:
-           conn.execute('INSERT INTO todos (content) VALUES (?)',(new_task,))
-           conn.commit()
-           task = conn.execute('SELECT * FROM todos WHERE content = ?',(new_task,)).fetchone()
-           task_id = str(task['id'])
-           conn.close()
+           db.session.add(tasks(new_task))
+           db.session.commit()
+           task = tasks.query.filter_by(content=new_task).first()
+           task_id = str(task.id)
        print(f"task #{task_id} created")
        return task_id
 
 @app.route('/delete', methods=['POST'])
 def delete():
-    conn = get_db_connection()
     if request.method == 'POST':
-        id = request.get_json()['task_id']
-        conn.execute("DELETE FROM todos WHERE id = ?", (id,))
-        conn.commit()
-        conn.close()
-        print(f"task #{id} deleted")
+        _id = request.get_json()['task_id']
+        task = tasks.query.filter_by(id=_id).first()
+        db.session.delete(task)
+        db.session.commit()
+        print(f"task #{_id} deleted")
         return "Task deleted successfully"
 
 if __name__ == "__main__":
