@@ -23,7 +23,7 @@ def index():
     todos = reversed(todos)
     return render_template('index.html',todos=todos)
 
-@app.route('/create', methods=['POST'])   
+@app.route('/create', methods=['POST', 'GET'])   
 def create():
     if request.method == "POST":
        print("incoming POST...")
@@ -36,6 +36,11 @@ def create():
            task_id = str(task.id)
        print(f"task #{task_id} created")
        return task_id
+    elif request.method == 'GET':
+        print('sending response')
+        with open('templates/card_content.html') as html:
+            text = html.read()
+            return text
 
 @app.route('/delete', methods=['POST'])
 def delete():

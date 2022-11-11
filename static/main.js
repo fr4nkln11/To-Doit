@@ -34,26 +34,17 @@ document.querySelector('#add_task').addEventListener('submit', () => {
     event.preventDefault();
     const new_task = document.querySelector('#task_input').value;
         
-    let createCard = (t_id) => {
+    async function createCard(t_id){
         let new_card = document.createElement('div');
         new_card.id = t_id
         new_card.className = "card mb-2 shadow-sm"
         
-        let new_card_content = '<li class="list-group-item py-0 border-0 d-flex justify-content-between align-items-center">' +
-    	    	'<div class="pretty p-icon p-toggle p-plain px-1">' +
-                    '<input class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
-                    '<div class="state p-off">' +
-                        '<i class="bi bi-circle"></i>' +
-                    '</div>' +
-                    '<div class="state p-on">' +
-                        '<i class="bi bi-check-circle-fill"></i>' +
-                    '</div>' +
-                '</div>' +
-                '<div class="card-body lh-sm px-0"></div>' +
-                '<button type="button" class="btn btn-sm close-btn px-2"><i class="bi bi-x-lg"></i></button>' +
-            '</li>'
+        await fetch('/create').then((response) => {
+            return response.text();
+        }).then((html) => {
+            new_card.innerHTML = html
+        });
         
-        new_card.innerHTML = new_card_content;
         new_card.children[0].children[1].innerHTML = new_task
         new_card.children[0].children[2].id = t_id
         
