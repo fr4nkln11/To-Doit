@@ -1,6 +1,6 @@
-:root {
-    --main-color: rgb(22,22,70);
-    --main-color-alpha: rgba(22,22,70,0.85);
+root {
+    --main-color: rgb(22, 22, 70);
+    --main-color-alpha: rgba(22, 22, 70, 0.85);
     --gradient-background: linear-gradient(0deg, #dedeff 0%, #eeeeff 90%);
 }
 
@@ -9,12 +9,11 @@ button:focus,
 button:active,
 input:hover,
 input:focus,
-input:active
- {
-  border: 0px;
-  outline: none;
-  box-shadow: none !important;
-  -webkit-appearance: none;
+input:active {
+    border: 0px;
+    outline: none;
+    box-shadow: none !important;
+    -webkit-appearance: none;
 }
 
 html {
@@ -38,7 +37,7 @@ body {
     font-weight: 600;
 }
 
-.header{
+.header {
     font-family: 'Nunito';
     font-weight: 600;
     font-size: 1.4em;
@@ -51,17 +50,17 @@ body {
 }
 
 .content {
-  font-family: 'Nunito';
-  margin: auto;
+    font-family: 'Nunito';
+    margin: auto;
 }
 
-.fixed-bottom-group{
-	position:sticky;
-	bottom:0;
-	left:0;
-	right:0;	
-	width:80%;
-	margin:auto;
+.fixed-bottom-group {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 80%;
+    margin: auto;
 }
 
 .input-group {
@@ -69,7 +68,7 @@ body {
 }
 
 input[type="text"] {
-    background-color: rgba(255,255,255,0.55);
+    background-color: rgba(255, 255, 255, 0.55);
     backdrop-filter: blur(1px);
     border: 0px;
     border-radius: 30px;
@@ -81,22 +80,22 @@ input[type="text"] {
     border-radius: 0 30px 30px 0;
 }
 
-.card{
-    background-color: rgba(255,255,255,0.5);
+.card {
+    background-color: rgba(255, 255, 255, 0.5);
     border: 0px;
     border-radius: 10px;
 }
 
 .card:active,
 .card:hover {
-    background-color: rgba(255,255,255,0.9);
+    background-color: rgba(255, 255, 255, 0.9);
     border: 0px;
     border-radius: 10px;
 }
 
 .list-group-item,
 .list-group-item .close-btn {
-    background-color: rgba(0,0,0,0);
+    background-color: rgba(0, 0, 0, 0);
     color: var(--main-color);
 }
 
@@ -104,6 +103,6 @@ input[type="text"] {
     font-size: 1em;
 }
 
-.card-body{
+.card-body {
     font-size: 0.95em;
 }
