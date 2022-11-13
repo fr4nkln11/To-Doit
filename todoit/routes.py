@@ -1,23 +1,6 @@
-import sqlite3
 from flask import Flask, render_template, request, redirect, url_for
-from flask_sqlalchemy import SQLAlchemy
-
-app = Flask(__name__, instance_relative_config=True)
-app.config.from_object('config')
-app.config.from_pyfile('config.py')
-
-db = SQLAlchemy(app)
-
-class tasks(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    content = db.Column(db.Text, nullable=False)
-
-    def __repr__(self):
-        return f"[Task #{self.id}]"
-
-    def __init__(self, content):
-        self.content = content
-
+from .models import db, tasks
+from . import app
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -43,7 +26,7 @@ def create():
             return "empty string"
 
     elif request.method == "GET":
-        with open("templates/card_content.html") as html:
+        with open("todoit/templates/card_content.html") as html:
             text = html.read()
             return text
 
@@ -60,7 +43,3 @@ def delete():
             return "Task deleted successfully"
         else:
             return "Error"
-
-
-if __name__ == "__main__":
-    app.run()
