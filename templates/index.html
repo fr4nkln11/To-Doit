@@ -2,7 +2,7 @@
 
 {% block content %}
     {% for entry in todos %}
-        <div id="{{ entry['id'] }}" class="card mb-2 shadow-sm">
+        <div id="{{ entry.id }}" class="card mb-2 shadow-sm">
             {% include 'card_content.html' %}
         </div>
     {% endfor %}
