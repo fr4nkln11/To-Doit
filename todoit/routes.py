@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for
 from .models import db, tasks
 from . import app
+import os
+
+basedir = os.path.abspath(os.path.dirname(__file__))
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -26,7 +29,7 @@ def create():
             return "empty string"
 
     elif request.method == "GET":
-        with open("todoit/templates/card_content.html") as html:
+        with open(os.path.join(basedir, "templates/card_content.html")) as html:
             text = html.read()
             return text
 
