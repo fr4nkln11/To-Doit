@@ -9,6 +9,7 @@ def create_app():
     db.init_app(app)
     migrate = Migrate(app, db)
     
-    from . import routes
+    from .routes import todo_app
+    app.register_blueprint(todo_app)
     
     return app

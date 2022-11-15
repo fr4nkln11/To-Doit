@@ -1,20 +1,19 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, Blueprint
 from .models import db, tasks
-from . import create_app
 import os
 
-app = create_app()
+todo_app = Blueprint("todo_app", __name__)
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-@app.route("/", methods=["GET", "POST"])
+@todo_app.route("/", methods=["GET", "POST"])
 def index():
     todos = tasks.query.all()
     todos = reversed(todos)
     return render_template("index.html", todos=todos)
 
 
-@app.route("/create", methods=["POST", "GET"])
+@todo_app.route("/create", methods=["POST", "GET"])
 def create():
     if request.method == "POST":
         new_task = request.get_json()["new_task"]
@@ -36,7 +35,7 @@ def create():
             return text
 
 
-@app.route("/delete", methods=["POST"])
+@todo_app.route("/delete", methods=["POST"])
 def delete():
     if request.method == "POST":
         task_id = request.get_json()["task_id"]
