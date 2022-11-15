@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for
 from .models import db, tasks
-from . import app
+from . import create_app
 import os
+
+app = create_app()
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
