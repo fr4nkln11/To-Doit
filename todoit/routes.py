@@ -16,9 +16,7 @@ def index():
 @todo_app.route("/create", methods=["POST", "GET"])
 def create():
     if request.method == "POST":
-        new_task = request.get_json()["new_task"]
-
-        if new_task:
+        if new_task := request.get_json()["new_task"]:
             task = tasks(new_task)
             db.session.add(task)
             db.session.commit()
@@ -31,15 +29,13 @@ def create():
 
     elif request.method == "GET":
         with open(os.path.join(basedir, "templates/card_content.html")) as html:
-            text = html.read()
-            return text
+            return html.read()
 
 
 @todo_app.route("/delete", methods=["POST"])
 def delete():
     if request.method == "POST":
-        task_id = request.get_json()["task_id"]
-        if task_id:
+        if task_id := request.get_json()["task_id"]:
             task = tasks.query.get(task_id)
             db.session.delete(task)
             db.session.commit()
