@@ -24,7 +24,7 @@ def create():
             db.session.commit()
             db.session.refresh(task)
             task_id = str(task.id)
-            print(f"task #{task_id} created")
+            print(f"task #{task_id} created: {new_task}")
             return task_id
         else:
             return "empty string"
