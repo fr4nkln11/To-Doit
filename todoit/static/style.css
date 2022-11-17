@@ -1,7 +1,7 @@
 :root {
     --main-color: rgb(22, 22, 70);
     --main-color-alpha: rgba(22, 22, 70, 0.85);
-    --gradient-background: linear-gradient(0deg, #dedeff 0%, #eeeeff 90%);
+    --gradient-background: linear-gradient(0deg, #eaaeff 70%, #ffffff 100%);
 }
 
 button:hover,
