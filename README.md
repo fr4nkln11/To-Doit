@@ -12,7 +12,9 @@ To-Doit is a simple To do list app written in Python using the Flask micro frame
 ## Technology
 * Flask
 * Flask-SQLAlchemy
-* Psycopg2-binary
+* PostgreSQL
+* Vercel
+* Railway (Database Provisioning)
 * Bootstrap
 * Bootstrap-icons
 * Pretty-checkbox
@@ -22,12 +24,15 @@ To-Doit is a simple To do list app written in Python using the Flask micro frame
   * JavaScript
   * CSS
   * HTML
+  * SQL
 
 ## Current Features
 * Add task to to-do list
 * Delete task from to-do list 
 
 ## Planned Features
+* New UI components
+* re-designed UI
 * Multiple color themes
 * Update task
 * Off-canvas menu
